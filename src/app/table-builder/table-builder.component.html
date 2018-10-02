@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create new game!</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <form>
+    <div class="form-group" >
+      <label for="name">Name</label>
+      <input #name id="name"  type="text" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="number">Number of players</label>
+      <input #number id="number" type="number" class="form-control">
+    </div>
+
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="create(name.value,number.value)">Create</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

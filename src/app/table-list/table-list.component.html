@@ -1,0 +1,47 @@
+<p>
+  <button class="btn btn-primary" (click)="create()">Create new table</button>
+</p>
+
+<table class="table table-striped" [mfData]="games" #mf="mfDataTable" [mfRowsOnPage]="5">
+  <thead>
+  <tr>
+    <th style="width: 20%">
+      <mfDefaultSorter by="name" >Name</mfDefaultSorter>
+    </th>
+    <th style="width: 50%">
+      <mfDefaultSorter by="uuid">Email</mfDefaultSorter>
+    </th>
+    <th style="width: 15%">
+      <mfDefaultSorter by="userList.length" class="text-center">Players</mfDefaultSorter>
+    </th>
+    <th style="width: 15%">
+      <mfDefaultSorter by="city"></mfDefaultSorter>
+    </th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let game of mf.data">
+    <td>{{game.name | uppercase}}</td>
+    <td>{{game.uuid}}</td>
+    <td class="text-center">{{game.userList.length }} / {{game.numberOfPlayers}}</td>
+    <td class="text-right"> <button class="btn btn-small btn-primary" (click)="join(game.uuid)">Join</button></td>
+  </tr>
+  </tbody>
+
+  <tfoot>
+  <tr>
+    <td colspan="4">
+      <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+    </td>
+  </tr>
+  </tfoot>
+</table>
+
+
+<!--<ul class="list-group">-->
+  <!--<li *ngFor="let game of games" class="list-group-item">-->
+    <!--<button class="btn btn-primary small" (click)="join(game.uuid)">Join Game</button>-->
+    <!--{{game.name}}  {{game.uuid}}-->
+  <!--</li>-->
+<!--</ul>-->

@@ -1,0 +1,10 @@
+<div *ngIf="turtle">
+  <app-turtle  [turtle]="turtle.nextTurtle" *ngIf="turtle.nextTurtle" ></app-turtle>
+
+  <p>
+    {{turtle.color}}
+    {{turtle.position}}
+  </p>
+</div>
+
+
